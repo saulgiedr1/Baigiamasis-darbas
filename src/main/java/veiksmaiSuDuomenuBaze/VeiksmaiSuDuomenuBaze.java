@@ -87,6 +87,25 @@ public static ArrayList<Ingredientai> grazintiVisusIngredientus(Connection jungt
     }
     return visiIngredientai;
 }
+//--------------------------------------------------------
+public static ArrayList<Ingredientai> grazintiIngredientoKaina (Connection jungtis, double x) {
+    ArrayList<Ingredientai> ingredientas = new ArrayList<>();
+    String sqlUzklausa = "SELECT * FROM ingredientai WHERE kaina < ?";
+    try {
+        PreparedStatement paruostukas = jungtis.prepareStatement(sqlUzklausa);
+        paruostukas.setDouble(1, x);
+        ResultSet rezultatas = paruostukas.executeQuery();
+        while (rezultatas.next()) {
+            ingredientas.add(new Ingredientai(rezultatas.getInt("id"), rezultatas.getString("pavadinimas"), rezultatas.getDouble("kaina")));
+        }
+
+
+    } catch (SQLException e) {
+        e.printStackTrace();
+        System.out.println("Nepavyko pasiekti duomenų.");
+    }
+    return ingredientas;
+}
 
 
 

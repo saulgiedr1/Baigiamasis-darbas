@@ -54,6 +54,15 @@ public class PagrindinePrograma {
             e.printStackTrace();
         }
 
+        System.out.println("------------------");
+        ArrayList<Ingredientai> igredientuKaina=VeiksmaiSuDuomenuBaze.grazintiIngredientoKaina(jungtis, 3);
+
+        System.out.println("Kuriu kaina yra mažesnė už x");
+
+        System.out.println("------------------");
+
+        PapildomosFunkcijos.isvestiIngredientuListaEilutemis(igredientuKaina);
+
 
 
 
