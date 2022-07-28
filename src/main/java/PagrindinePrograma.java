@@ -31,7 +31,7 @@ public class PagrindinePrograma {
         System.out.println("------------------");
         ArrayList<Receptai> receptuKaina=VeiksmaiSuDuomenuBaze.grazintiKaina(jungtis, 20);
 
-        System.out.println("Kuriu kaina yra didesnė už x");
+        System.out.println("Receptai, kuriu kaina yra didesnė už x");
 
         System.out.println("------------------");
 
@@ -39,8 +39,8 @@ public class PagrindinePrograma {
 
         System.out.println("------------------");
 
-       Receptai pridetiRecepta = new Receptai("Bestrogenas",25.69,"Iškepti");
-        VeiksmaiSuDuomenuBaze.pridetiRecepta(jungtis, pridetiRecepta);
+      // Receptai pridetiRecepta = new Receptai("Bestrogenas",25.69,"Iškepti");
+      //  VeiksmaiSuDuomenuBaze.pridetiRecepta(jungtis, pridetiRecepta);
 
 
         //---------------------------------------------------------
@@ -57,11 +57,34 @@ public class PagrindinePrograma {
         System.out.println("------------------");
         ArrayList<Ingredientai> igredientuKaina=VeiksmaiSuDuomenuBaze.grazintiIngredientoKaina(jungtis, 3);
 
-        System.out.println("Kuriu kaina yra mažesnė už x");
+        System.out.println("Ingredientai, kuriu kaina yra mažesnė už x");
 
         System.out.println("------------------");
 
         PapildomosFunkcijos.isvestiIngredientuListaEilutemis(igredientuKaina);
+
+        //---------------------------------------
+
+        System.out.println("------------------");
+        double vidurkis=VeiksmaiSuDuomenuBaze.grazintiIngredientoKainuVidurki(jungtis);
+
+        System.out.println("Ingredientu kainu vidurkis yra = " + vidurkis);
+
+        System.out.println("------------------");
+
+        //------------------------------------
+
+        System.out.println("------------------");
+        ArrayList<Ingredientai> igredientuTop=VeiksmaiSuDuomenuBaze.grazintiTopIngredientus(jungtis, 5);
+
+        System.out.println("Ingredientai, kuriu kaina yra didzausia x");
+
+        System.out.println("------------------");
+
+        PapildomosFunkcijos.isvestiIngredientuListaEilutemis(igredientuTop);
+
+
+
 
 
 
