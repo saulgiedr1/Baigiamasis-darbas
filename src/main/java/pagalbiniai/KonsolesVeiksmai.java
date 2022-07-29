@@ -36,6 +36,7 @@ public class KonsolesVeiksmai {
         System.out.println("6 - Kelinto recepto ingredientus rodyti?");
         System.out.println("7 - Įvesti recepto duomenis;");
         System.out.println("8 - Receptai, brangesni už įvedamą kainą;");
+        System.out.println("9 - Receptai, kurių pavadinimas prasideda raide arba raidėmis...;");
 
         return skaitytuvas.nextInt();
     }
