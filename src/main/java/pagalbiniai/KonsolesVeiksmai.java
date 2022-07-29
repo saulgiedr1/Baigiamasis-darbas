@@ -27,15 +27,15 @@ public class KonsolesVeiksmai {
     }
 
     public static int meniuPasirinkimai() {
-        System.out.println("Meniu pasirinkimai");
-        System.out.println("1 - Išvesti visus receptus ");
-        System.out.println("2 - Išvesti visus igredientus ");
-        System.out.println("3 - Išvesti visų ingredientų kainų vidurkį");
-        System.out.println("4 - Ingredientai , pigesni už įvedama kainą");
+        System.out.println("Meniu pasirinkimai:");
+        System.out.println("1 - Išvesti visus receptus;");
+        System.out.println("2 - Išvesti visus igredientus;");
+        System.out.println("3 - Išvesti visų ingredientų kainų vidurkį;");
+        System.out.println("4 - Ingredientai, pigesni už įvedama kainą;");
         System.out.println("5 - Kelis brangiausius ingredientus rodyti? ");
         System.out.println("6 - Kelinto recepto ingredientus rodyti?");
-        System.out.println("7 - Įvesti recepto duomenis");
-        System.out.println("8 - Receptai, brangesni už įvedamą kainą");
+        System.out.println("7 - Įvesti recepto duomenis;");
+        System.out.println("8 - Receptai, brangesni už įvedamą kainą;");
 
         return skaitytuvas.nextInt();
     }

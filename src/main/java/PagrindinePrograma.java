@@ -18,6 +18,7 @@ public class PagrindinePrograma {
 
         switch (pasirinkimas) {
             case 1:
+                assert jungtis != null;
                 ArrayList<Receptai> visiReceptai = ReceptuVeiksmai.grazintiVisusReceptus(jungtis);
                 PapildomosFunkcijos.isvestiReceptuListaEilutemis(visiReceptai);
                 break;
