@@ -64,4 +64,10 @@ public class KonsolesVeiksmai {
         return skaitytuvas.nextDouble();
 
     }
+     public static String nuskaitytiReceptaKurioPavadinimasPrasideda() {
+        System.out.println("Įveskite recepto pavadinimo pirmą raidę arba pirmąsias kelias raides");
+        skaitytuvas.nextLine();
+
+        return skaitytuvas.nextLine();
+    }
 }
