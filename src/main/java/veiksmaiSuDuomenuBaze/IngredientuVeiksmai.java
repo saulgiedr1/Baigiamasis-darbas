@@ -1,5 +1,7 @@
 package veiksmaiSuDuomenuBaze;
+
 import entities.Ingredientai;
+
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -26,7 +28,7 @@ public class IngredientuVeiksmai {
 
         } catch (SQLException e) {
             e.printStackTrace();
-            System.out.println("Nepavyko gauti duomenų  iš DB");
+            System.out.println("Nepavyko gauti duomenų  iš DB.");
         }
         return visiIngredientai;
     }
@@ -44,7 +46,7 @@ public class IngredientuVeiksmai {
 
         } catch (SQLException e) {
             e.printStackTrace();
-            System.out.println("Nepavyko pasiekti duomenų.");
+            System.out.println("Nepavyko gauti duomenų  iš DB.");
         }
         return ingredientas;
     }
@@ -61,10 +63,11 @@ public class IngredientuVeiksmai {
 
         } catch (SQLException e) {
             e.printStackTrace();
-            System.out.println("Nepavyko pasiekti duomenų.");
+            System.out.println("Nepavyko gauti duomenų  iš DB.");
         }
         return vidurkis;
     }
+
     public static ArrayList<Ingredientai> grazintiTopIngredientus(Connection jungtis, int x) {
         ArrayList<Ingredientai> ingredientas = new ArrayList<>();
         String sqlUzklausa = "SELECT * FROM ingredientai ORDER BY ingredientai.kaina DESC LIMIT ?";
@@ -78,7 +81,7 @@ public class IngredientuVeiksmai {
 
         } catch (SQLException e) {
             e.printStackTrace();
-            System.out.println("Nepavyko pasiekti duomenų.");
+            System.out.println("Nepavyko gauti duomenų  iš DB.");
         }
         return ingredientas;
     }

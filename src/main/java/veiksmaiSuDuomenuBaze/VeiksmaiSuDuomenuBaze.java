@@ -16,7 +16,7 @@ public class VeiksmaiSuDuomenuBaze {
             return DriverManager.getConnection(DB_NUORODA, DB_USER, DB_PASSWORD);
         } catch (SQLException e) {
             e.printStackTrace();
-            System.out.println("Nepavyko įdėti duomenų į duomenų bazę");
+            System.out.println("Nepavyko prisijungti prie DB.");
         }
         return null;
     }

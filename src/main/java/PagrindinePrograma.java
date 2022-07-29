@@ -28,7 +28,7 @@ public class PagrindinePrograma {
 
             case 3:
                 double vidurkis = IngredientuVeiksmai.grazintiIngredientoKainuVidurki(jungtis);
-                System.out.println("Ingredientu kainu vidurkis yra = " + vidurkis);
+                System.out.println("Ingredientų kainų vidurkis yra = " + vidurkis);
                 break;
             case 4:
                 double mazesneIngredientuKaina = KonsolesVeiksmai.nuskaitytiIgredientusPigesniusUz();

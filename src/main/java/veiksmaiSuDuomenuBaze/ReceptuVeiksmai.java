@@ -1,6 +1,8 @@
 package veiksmaiSuDuomenuBaze;
+
 import entities.Ingredientai;
 import entities.Receptai;
+
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -27,11 +29,12 @@ public class ReceptuVeiksmai {
             }
         } catch (SQLException e) {
             e.printStackTrace();
-            System.out.println("Nepavyko gauti duomenų  iš DB");
+            System.out.println("Nepavyko gauti duomenų  iš DB.");
         }
 
         return visiReceptai;
     }
+
     public static ArrayList<Receptai> grazintiKaina(Connection jungtis, double x) {
         ArrayList<Receptai> receptas = new ArrayList<>();
         String sqlUzklausa = "SELECT * FROM receptai WHERE kaina > ?";
@@ -44,10 +47,11 @@ public class ReceptuVeiksmai {
             }
         } catch (SQLException e) {
             e.printStackTrace();
-            System.out.println("Nepavyko pasiekti duomenų.");
+            System.out.println("Nepavyko gauti duomenų  iš DB.");
         }
         return receptas;
     }
+
     public static ArrayList<Ingredientai> grazintiReceptoIngredientus(Connection jungtis, int n) {
         ArrayList<Ingredientai> ingredientas = new ArrayList<>();
         String sqlUzklausa = "SELECT ingredientai.id,ingredientai.pavadinimas,ingredientai.kaina\n" +
@@ -62,13 +66,13 @@ public class ReceptuVeiksmai {
             while (rezultatas.next()) {
                 ingredientas.add(new Ingredientai(rezultatas.getInt("id"), rezultatas.getString("pavadinimas"), rezultatas.getDouble("kaina")));
             }
-
         } catch (SQLException e) {
             e.printStackTrace();
-            System.out.println("Nepavyko pasiekti duomenų.");
+            System.out.println("Nepavyko gauti duomenų  iš DB.");
         }
         return ingredientas;
     }
+
     public static void pridetiRecepta(Connection jungtis, Receptai receptai) {
         String sqlUzklausa = "INSERT INTO receptai(pavadinimas,kaina,nurodymai) VALUES (?, ?, ?)";
         try {
@@ -79,7 +83,7 @@ public class ReceptuVeiksmai {
             paruostukas.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();
-            System.out.println("Nepavyko įdėti duomenų į duomenų bazę");
+            System.out.println("Nepavyko įkelti duomenų į DB.");
         }
     }
 }

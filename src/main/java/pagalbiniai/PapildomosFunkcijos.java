@@ -12,15 +12,13 @@ public class PapildomosFunkcijos {
 
     public static void isvestiReceptuListaEilutemis(ArrayList<Receptai> receptas) {
         for (Receptai receptai : receptas) {
-            System.out.println("receptai = " + receptai);
+            System.out.println("Receptai = " + receptai);
         }
     }
 
-    //-------------------------------------------
     public static void isvestiIngredientuListaEilutemis(ArrayList<Ingredientai> ingredientas) {
         for (Ingredientai ingredientai : ingredientas) {
-            System.out.println("ingredientai = " + ingredientai);
+            System.out.println("Ingredientai = " + ingredientai);
         }
     }
-
 }

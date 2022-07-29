@@ -10,13 +10,13 @@ public class KonsolesVeiksmai {
 
     public static Receptai ivestiReceptusPerKonsole() {
 
-        System.out.println("Iveskite recepto pavadinima");
+        System.out.println("Įveskite recepto pavadinimą");
         skaitytuvas.nextLine();
         String pavadinimas = skaitytuvas.nextLine();
-        System.out.println("Iveskite recepto kaina");
+        System.out.println("Įveskite recepto kainą");
         double kaina = skaitytuvas.nextDouble();
         skaitytuvas.nextLine();
-        System.out.println("Iveskite nurodymus");
+        System.out.println("Įveskite nurodymus");
         String nurodymai = skaitytuvas.nextLine();
 
         System.out.println("Nurodymai = " + nurodymai);
@@ -31,35 +31,35 @@ public class KonsolesVeiksmai {
         System.out.println("1 - Išvesti visus receptus ");
         System.out.println("2 - Išvesti visus igredientus ");
         System.out.println("3 - Išvesti visų ingredientų kainų vidurkį");
-        System.out.println("4 - Ingredientai , pigesni už ivedama kaina");
+        System.out.println("4 - Ingredientai , pigesni už įvedama kainą");
         System.out.println("5 - Kelis brangiausius ingredientus rodyti? ");
         System.out.println("6 - Kelinto recepto ingredientus rodyti?");
-        System.out.println("7 - Ivesti recepto duomenis");
-        System.out.println("8 - Receptai, brangesni uz ivedama kaina");
+        System.out.println("7 - Įvesti recepto duomenis");
+        System.out.println("8 - Receptai, brangesni už įvedamą kainą");
 
         return skaitytuvas.nextInt();
     }
 
     public static double nuskaitytiIgredientusPigesniusUz() {
-        System.out.println("Iveskite, uz kiek pigesnius ingredientus rodyti");
+        System.out.println("Įveskite, už kiek pigesnius ingredientus rodyti");
 
         return skaitytuvas.nextDouble();
     }
 
     public static int nuskaitytiBrangiausiuIgredientuTop() {
-        System.out.println("Iveskite, kelis brangieusius ingredientus rodyti");
+        System.out.println("Įveskite, kelis brangiausius ingredientus rodyti");
 
         return skaitytuvas.nextInt();
     }
 
     public static int nuskaitytiNtojoReceptoIngredientus() {
-        System.out.println("Iveskite, recepto id, kurio ingredientus rodyti");
+        System.out.println("Įveskite, recepto id, kurio ingredientus rodyti");
 
         return skaitytuvas.nextInt();
     }
 
     public static double nuskaitytiReceptusBrangesniusUz() {
-        System.out.println("Iveskite, uz kokia kaina brangesnius receptus  rodyti");
+        System.out.println("Įveskite, už kokią kainą brangesnius receptus  rodyti");
 
         return skaitytuvas.nextDouble();
 

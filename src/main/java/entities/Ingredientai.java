@@ -14,8 +14,6 @@ public class Ingredientai {
         this.kaina = kaina;
     }
 
-
-
     public int getId() {
         return id;
     }
