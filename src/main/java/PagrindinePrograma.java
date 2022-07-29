@@ -23,34 +23,41 @@ public class PagrindinePrograma {
                 PapildomosFunkcijos.isvestiReceptuListaEilutemis(visiReceptai);
                 break;
             case 2:
+                assert jungtis != null;
                 ArrayList<Ingredientai> visiIngredientai = IngredientuVeiksmai.grazintiVisusIngredientus(jungtis);
                 PapildomosFunkcijos.isvestiIngredientuListaEilutemis(visiIngredientai);
                 break;
 
             case 3:
+                assert jungtis != null;
                 double vidurkis = IngredientuVeiksmai.grazintiIngredientoKainuVidurki(jungtis);
                 System.out.println("Ingredientų kainų vidurkis yra = " + vidurkis);
                 break;
             case 4:
+                assert jungtis != null;
                 double mazesneIngredientuKaina = KonsolesVeiksmai.nuskaitytiIgredientusPigesniusUz();
                 ArrayList<Ingredientai> igredientuKaina = IngredientuVeiksmai.grazintiIngredientoKaina(jungtis, mazesneIngredientuKaina);
                 PapildomosFunkcijos.isvestiIngredientuListaEilutemis(igredientuKaina);
                 break;
             case 5:
+                assert jungtis != null;
                 int ingredientuTopai = KonsolesVeiksmai.nuskaitytiBrangiausiuIgredientuTop();
                 ArrayList<Ingredientai> igredientuTop = IngredientuVeiksmai.grazintiTopIngredientus(jungtis, ingredientuTopai);
                 PapildomosFunkcijos.isvestiIngredientuListaEilutemis(igredientuTop);
                 break;
             case 6:
+                assert jungtis != null;
                 int visiReceptoIgredientai = KonsolesVeiksmai.nuskaitytiNtojoReceptoIngredientus();
                 ArrayList<Ingredientai> receptoIngredientai = ReceptuVeiksmai.grazintiReceptoIngredientus(jungtis, visiReceptoIgredientai);
                 PapildomosFunkcijos.isvestiIngredientuListaEilutemis(receptoIngredientai);
                 break;
             case 7:
+                assert jungtis != null;
                 Receptai naujasReceptas = KonsolesVeiksmai.ivestiReceptusPerKonsole();
                 ReceptuVeiksmai.pridetiRecepta(jungtis, naujasReceptas);
                 break;
             case 8:
+                assert jungtis != null;
                 double brangesniReceptai = KonsolesVeiksmai.nuskaitytiReceptusBrangesniusUz();
                 ArrayList<Receptai> receptuKaina = ReceptuVeiksmai.grazintiKaina(jungtis, brangesniReceptai);
                 PapildomosFunkcijos.isvestiReceptuListaEilutemis(receptuKaina);
