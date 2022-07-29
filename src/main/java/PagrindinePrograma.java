@@ -83,13 +83,15 @@ public class PagrindinePrograma {
 
         PapildomosFunkcijos.isvestiIngredientuListaEilutemis(igredientuTop);
 
+        //-----------------------------------
+        System.out.println("------------------");
+        ArrayList<Ingredientai> receptoIngridientai=VeiksmaiSuDuomenuBaze.grazintiReceptoIngredientus(jungtis, 6);
 
+        System.out.println("Ingredientai, ieinantys i n-taji recepta ");
 
+        System.out.println("------------------");
 
-
-
-
-
+        PapildomosFunkcijos.isvestiIngredientuListaEilutemis(receptoIngridientai);
 
 
     }

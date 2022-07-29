@@ -47,8 +47,6 @@ public class VeiksmaiSuDuomenuBaze {
             while (rezultatas.next()) {
                 receptas.add(new Receptai(rezultatas.getInt("id"), rezultatas.getString("pavadinimas"), rezultatas.getDouble("kaina"), rezultatas.getString("nurodymai")));
             }
-
-
         } catch (SQLException e) {
             e.printStackTrace();
             System.out.println("Nepavyko pasiekti duomenų.");
@@ -102,7 +100,6 @@ public class VeiksmaiSuDuomenuBaze {
                 ingredientas.add(new Ingredientai(rezultatas.getInt("id"), rezultatas.getString("pavadinimas"), rezultatas.getDouble("kaina")));
             }
 
-
         } catch (SQLException e) {
             e.printStackTrace();
             System.out.println("Nepavyko pasiekti duomenų.");
@@ -123,58 +120,53 @@ public class VeiksmaiSuDuomenuBaze {
                 vidurkis = rezultatas.getDouble("AVG(kaina)");
             }
 
-
         } catch (SQLException e) {
             e.printStackTrace();
             System.out.println("Nepavyko pasiekti duomenų.");
         }
         return vidurkis;
     }
-        //------------------------------------------------
+    //------------------------------------------------
 
-        public static ArrayList<Ingredientai> grazintiTopIngredientus(Connection jungtis, int x) {
-            ArrayList<Ingredientai> ingredientas = new ArrayList<>();
-            String sqlUzklausa = "SELECT * FROM ingredientai ORDER BY ingredientai.kaina DESC LIMIT ?";
-            try {
-                PreparedStatement paruostukas = jungtis.prepareStatement(sqlUzklausa);
-                paruostukas.setInt(1, x);
-                ResultSet rezultatas = paruostukas.executeQuery();
-                while (rezultatas.next()) {
-                    ingredientas.add(new Ingredientai(rezultatas.getInt("id"), rezultatas.getString("pavadinimas"), rezultatas.getDouble("kaina")));
-                }
-
-            } catch (SQLException e) {
-                e.printStackTrace();
-                System.out.println("Nepavyko pasiekti duomenų.");
+    public static ArrayList<Ingredientai> grazintiTopIngredientus(Connection jungtis, int x) {
+        ArrayList<Ingredientai> ingredientas = new ArrayList<>();
+        String sqlUzklausa = "SELECT * FROM ingredientai ORDER BY ingredientai.kaina DESC LIMIT ?";
+        try {
+            PreparedStatement paruostukas = jungtis.prepareStatement(sqlUzklausa);
+            paruostukas.setInt(1, x);
+            ResultSet rezultatas = paruostukas.executeQuery();
+            while (rezultatas.next()) {
+                ingredientas.add(new Ingredientai(rezultatas.getInt("id"), rezultatas.getString("pavadinimas"), rezultatas.getDouble("kaina")));
             }
-            return ingredientas;
-        }
-        //------------------------------------------------
-        public static ArrayList<Ingredientai> grazintiReceptoIngredientus(Connection jungtis, int x) {
-            ArrayList<Ingredientai> ingredientas = new ArrayList<>();
-            String sqlUzklausa = "SELECT ingredientai.id,ingredientai.pavadinimas,ingredientai.kaina\n" +
-                    "FROM receptai\n" +
-                    "JOIN receptai_ingredientai ON receptai.id=receptai_ingredientai.receptas_id\n" +
-                    "JOIN ingredientai ON ingredientai.id=receptai_ingredientai.ingredientas_id\n" +
-                    "WHERE receptai.id=?; ";
-            try {
-                PreparedStatement paruostukas = jungtis.prepareStatement(sqlUzklausa);
-                paruostukas.setInt(1, x);
-                ResultSet rezultatas = paruostukas.executeQuery();
-                while (rezultatas.next()) {
-                    ingredientas.add(new Ingredientai(rezultatas.getInt("id"), rezultatas.getString("pavadinimas"), rezultatas.getDouble("kaina")));
-                }
 
-            } catch (SQLException e) {
-                e.printStackTrace();
-                System.out.println("Nepavyko pasiekti duomenų.");
+        } catch (SQLException e) {
+            e.printStackTrace();
+            System.out.println("Nepavyko pasiekti duomenų.");
+        }
+        return ingredientas;
+    }
+
+    //------------------------------------------------
+    public static ArrayList<Ingredientai> grazintiReceptoIngredientus(Connection jungtis, int n) {
+        ArrayList<Ingredientai> ingredientas = new ArrayList<>();
+        String sqlUzklausa = "SELECT ingredientai.id,ingredientai.pavadinimas,ingredientai.kaina\n" +
+                "FROM receptai\n" +
+                "JOIN receptai_ingredientai ON receptai.id=receptai_ingredientai.receptas_id\n" +
+                "JOIN ingredientai ON ingredientai.id=receptai_ingredientai.ingredientas_id\n" +
+                "WHERE receptai.id = ?; ";
+        try {
+            PreparedStatement paruostukas = jungtis.prepareStatement(sqlUzklausa);
+            paruostukas.setInt(1, n);
+            ResultSet rezultatas = paruostukas.executeQuery();
+            while (rezultatas.next()) {
+                ingredientas.add(new Ingredientai(rezultatas.getInt("id"), rezultatas.getString("pavadinimas"), rezultatas.getDouble("kaina")));
             }
-            return ingredientas;
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+            System.out.println("Nepavyko pasiekti duomenų.");
         }
-
-
-
-
-
+        return ingredientas;
+    }
 
 }
