@@ -55,6 +55,12 @@ public class PagrindinePrograma {
                 ArrayList<Receptai> receptuKaina = ReceptuVeiksmai.grazintiKaina(jungtis, brangesniReceptai);
                 PapildomosFunkcijos.isvestiReceptuListaEilutemis(receptuKaina);
                 break;
+            case 9:
+                assert jungtis != null;
+                String receptoPavadinimas = KonsolesVeiksmai.nuskaitytiReceptaKurioPavadinimasPrasideda();
+                ArrayList<Receptai> receptuPavadinimai = ReceptuVeiksmai.grazintiPavadinimaPagalPradzia(jungtis, receptoPavadinimas);
+                PapildomosFunkcijos.isvestiReceptuListaEilutemis(receptuPavadinimai);
+                break;
         }
     }
 }
