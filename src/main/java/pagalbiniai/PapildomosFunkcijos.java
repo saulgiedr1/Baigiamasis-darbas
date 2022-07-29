@@ -24,24 +24,7 @@ public class PapildomosFunkcijos {
     }
 
     //----------------------------------------
-    public static Receptai nuskaitytiReceptusIsKonsoles(){
-        Scanner skaitytuvas = new Scanner(System.in);
-        System.out.println("Iveskite recepto pavadinima");
-        String pavadinimas = skaitytuvas.nextLine();
-        System.out.println("Iveskite recepto kaina");
-        double kaina = skaitytuvas.nextDouble();
-        System.out.println("Iveskite nurodymus");
-        skaitytuvas.nextLine();
-        String nurodymai = skaitytuvas.nextLine();
 
-
-        System.out.println("nurodymai = " + nurodymai);
-        System.out.println("kaina = " + kaina);
-        System.out.println("pavadinimas = " + pavadinimas);
-
-        return new Receptai(pavadinimas, kaina, nurodymai);
-
-    }
 
 
 

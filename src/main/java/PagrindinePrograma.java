@@ -2,6 +2,7 @@
 
 import entities.Receptai;
 import entities.Ingredientai;
+import pagalbiniai.KonsolesVeiksmai;
 import pagalbiniai.PapildomosFunkcijos;
 import veiksmaiSuDuomenuBaze.VeiksmaiSuDuomenuBaze;
 import java.sql.Connection;
@@ -74,7 +75,7 @@ public class PagrindinePrograma {
 
         System.out.println("------------------");
 
-        Receptai naujasReceptas = PapildomosFunkcijos.nuskaitytiReceptusIsKonsoles();
+        Receptai naujasReceptas = KonsolesVeiksmai.ivestiReceptusPerKonsole();
         VeiksmaiSuDuomenuBaze.pridetiRecepta(jungtis, naujasReceptas);
 
 
