@@ -1,8 +1,6 @@
 package veiksmaiSuDuomenuBaze;
-
 import entities.Ingredientai;
 import entities.Receptai;
-
 import java.sql.*;
 import java.util.ArrayList;
 
@@ -15,25 +13,38 @@ public class VeiksmaiSuDuomenuBaze {
 
     }
 
-    public static Connection prisijungtiPrieDuombenuBazesReceptaiDb() throws SQLException {
-        return DriverManager.getConnection(DB_NUORODA, DB_USER, DB_PASSWORD);
+    public static Connection prisijungtiPrieDuombenuBazesReceptaiDb() {
+        try {
+            return DriverManager.getConnection(DB_NUORODA, DB_USER, DB_PASSWORD);
+        } catch (SQLException e) {
+            e.printStackTrace();
+            System.out.println("Nepavyko įdėti duomenų į duomenų bazę");
+        }
+        return null;
     }
 
-    public static ArrayList<Receptai> grazintiVisusReceptus(Connection jungtis) throws SQLException {
+    public static ArrayList<Receptai> grazintiVisusReceptus(Connection jungtis) {
         ArrayList<Receptai> visiReceptai = new ArrayList<>();
         String sqlUzklausa = "SELECT * FROM receptai";
 
-        PreparedStatement paruostukas = jungtis.prepareStatement(sqlUzklausa);
-        ResultSet rezultatas = paruostukas.executeQuery();
-        while (rezultatas.next()) {
-            int id = rezultatas.getInt("id");
-            String pavadinimas = rezultatas.getString("pavadinimas");
-            double kaina = rezultatas.getDouble("kaina");
-            String nurodymai = rezultatas.getString("nurodymai");
+        try {
 
-            Receptai laikinaReceptai = new Receptai(id, pavadinimas, kaina, nurodymai);
-            visiReceptai.add(laikinaReceptai);
+            PreparedStatement paruostukas = jungtis.prepareStatement(sqlUzklausa);
+            ResultSet rezultatas = paruostukas.executeQuery();
+            while (rezultatas.next()) {
+                int id = rezultatas.getInt("id");
+                String pavadinimas = rezultatas.getString("pavadinimas");
+                double kaina = rezultatas.getDouble("kaina");
+                String nurodymai = rezultatas.getString("nurodymai");
+
+                Receptai laikinaReceptai = new Receptai(id, pavadinimas, kaina, nurodymai);
+                visiReceptai.add(laikinaReceptai);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+            System.out.println("Nepavyko gauti duomenų  iš DB");
         }
+
         return visiReceptai;
     }
 
@@ -70,20 +81,27 @@ public class VeiksmaiSuDuomenuBaze {
     }
 
     //------------------------------------------------
-    public static ArrayList<Ingredientai> grazintiVisusIngredientus(Connection jungtis) throws SQLException {
+    public static ArrayList<Ingredientai> grazintiVisusIngredientus(Connection jungtis) {
         ArrayList<Ingredientai> visiIngredientai = new ArrayList<>();
         String sqlUzklausa = "SELECT * FROM ingredientai";
 
-        PreparedStatement paruostukas = jungtis.prepareStatement(sqlUzklausa);
-        ResultSet rezultatas = paruostukas.executeQuery();
-        while (rezultatas.next()) {
-            int id = rezultatas.getInt("id");
-            String pavadinimas = rezultatas.getString("pavadinimas");
-            double kaina = rezultatas.getDouble("kaina");
+        try {
+
+            PreparedStatement paruostukas = jungtis.prepareStatement(sqlUzklausa);
+            ResultSet rezultatas = paruostukas.executeQuery();
+            while (rezultatas.next()) {
+                int id = rezultatas.getInt("id");
+                String pavadinimas = rezultatas.getString("pavadinimas");
+                double kaina = rezultatas.getDouble("kaina");
 
 
-            Ingredientai laikinaIngredientai = new Ingredientai(id, pavadinimas, kaina);
-            visiIngredientai.add(laikinaIngredientai);
+                Ingredientai laikinaIngredientai = new Ingredientai(id, pavadinimas, kaina);
+                visiIngredientai.add(laikinaIngredientai);
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+            System.out.println("Nepavyko gauti duomenų  iš DB");
         }
         return visiIngredientai;
     }
