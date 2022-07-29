@@ -54,6 +54,7 @@ public class PagrindinePrograma {
                 double brangesniReceptai = KonsolesVeiksmai.nuskaitytiReceptusBrangesniusUz();
                 ArrayList<Receptai> receptuKaina = ReceptuVeiksmai.grazintiKaina(jungtis, brangesniReceptai);
                 PapildomosFunkcijos.isvestiReceptuListaEilutemis(receptuKaina);
+                break;
         }
     }
 }
