@@ -8,6 +8,7 @@
         <outputRelativeToContentRoot value="true" />
         <module name="Baigiamasis-darbas-java-SQL-main" />
         <module name="Receptu_uzduotis" />
+        <module name="Baigiamasis-darbas-java-SQL" />
       </profile>
     </annotationProcessing>
   </component>
