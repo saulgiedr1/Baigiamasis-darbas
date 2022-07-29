@@ -32,13 +32,12 @@ public class KonsolesVeiksmai {
         System.out.println("2 - Išvesti visus igredientus ");
         System.out.println("3 - Išvesti visų ingredientų kainų vidurkį");
         System.out.println("4 - Ingredientai , pigesni už ivedama kaina");
-        System.out.println("5 - Kelis brangiausius? ");
-        System.out.println("6 - Kelinto recepto?");
+        System.out.println("5 - Kelis brangiausius ingredientus rodyti? ");
+        System.out.println("6 - Kelinto recepto ingredientus rodyti?");
         System.out.println("7 - Ivesti recepto duomenis");
         System.out.println("8 - Receptai, brangesni uz ivedama kaina");
 
         return skaitytuvas.nextInt();
-
     }
 
     public static double nuskaitytiIgredientusPigesniusUz() {
@@ -60,10 +59,9 @@ public class KonsolesVeiksmai {
     }
 
     public static double nuskaitytiReceptusBrangesniusUz() {
-        System.out.println("Iveskite, uz kiek brangesnius receptus  rodyti");
+        System.out.println("Iveskite, uz kokia kaina brangesnius receptus  rodyti");
 
         return skaitytuvas.nextDouble();
-
 
     }
 }
