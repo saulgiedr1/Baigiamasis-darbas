@@ -86,4 +86,20 @@ public class ReceptuVeiksmai {
             System.out.println("Nepavyko įkelti duomenų į DB.");
         }
     }
+     public static ArrayList<Receptai> grazintiPavadinimaPagalPradzia(Connection jungtis, String x) {
+        ArrayList<Receptai> receptas = new ArrayList<>();
+        String sqlUzklausa = "SELECT *\nFROM receptai\nWHERE pavadinimas LIKE ? ";
+        try {
+            PreparedStatement paruostukas = jungtis.prepareStatement(sqlUzklausa);
+            paruostukas.setString(1,x + "%");
+            ResultSet rezultatas = paruostukas.executeQuery();
+            while (rezultatas.next()) {
+                receptas.add(new Receptai(rezultatas.getInt("id"), rezultatas.getString("pavadinimas"), rezultatas.getDouble("kaina"), rezultatas.getString("nurodymai")));
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+            System.out.println("Nepavyko gauti duomenų  iš DB.");
+        }
+        return receptas;
+    }
 }
