@@ -5,6 +5,7 @@ import entities.Ingredientai;
 import pagalbiniai.KonsolesVeiksmai;
 import pagalbiniai.PapildomosFunkcijos;
 import veiksmaiSuDuomenuBaze.IngredientuVeiksmai;
+import veiksmaiSuDuomenuBaze.ReceptuIngredientuVeiksmai;
 import veiksmaiSuDuomenuBaze.VeiksmaiSuDuomenuBaze;
 import veiksmaiSuDuomenuBaze.ReceptuVeiksmai;
 
@@ -28,7 +29,6 @@ public class PagrindinePrograma {
                 ArrayList<Ingredientai> visiIngredientai = IngredientuVeiksmai.grazintiVisusIngredientus(jungtis);
                 PapildomosFunkcijos.isvestiIngredientuListaEilutemis(visiIngredientai);
                 break;
-
             case 3:
                 assert jungtis != null;
                 double vidurkis = IngredientuVeiksmai.grazintiIngredientoKainuVidurki(jungtis);
@@ -55,7 +55,18 @@ public class PagrindinePrograma {
             case 7:
                 assert jungtis != null;
                 Receptai naujasReceptas = KonsolesVeiksmai.ivestiReceptusPerKonsole();
+                int ingredientoId = KonsolesVeiksmai.nuskaitytiIngredientoId(jungtis);
                 ReceptuVeiksmai.pridetiRecepta(jungtis, naujasReceptas);
+                visiReceptai = ReceptuVeiksmai.grazintiVisusReceptus(jungtis);
+                int receptoId = visiReceptai.get(visiReceptai.size() - 1).getId();
+
+                if (ingredientoId <= 0) {
+                    Ingredientai ingredientai = KonsolesVeiksmai.nuskaitytiIngredienta();
+                    IngredientuVeiksmai.idetiIngredienta(jungtis, ingredientai);
+                    receptoIngredientai = IngredientuVeiksmai.grazintiVisusIngredientus(jungtis);
+                    ingredientoId = receptoIngredientai.get(receptoIngredientai.size() - 1).getId();
+                }
+                ReceptuIngredientuVeiksmai.sujungtiReceptaSuIngredientu(jungtis, receptoId, ingredientoId);
                 break;
             case 8:
                 assert jungtis != null;
@@ -69,6 +80,14 @@ public class PagrindinePrograma {
                 ArrayList<Receptai> receptuPavadinimai = ReceptuVeiksmai.grazintiPavadinimaPagalPradzia(jungtis, receptoPavadinimas);
                 PapildomosFunkcijos.isvestiReceptuListaEilutemis(receptuPavadinimai);
                 break;
+
+            case 10:
+                assert jungtis != null;
+                Ingredientai ingredientai = KonsolesVeiksmai.nuskaitytiIngredienta();
+                IngredientuVeiksmai.idetiIngredienta(jungtis, ingredientai);
+                break;
+            default:
+                System.out.println("Tokio pasirinkimo nėra");
         }
     }
 }

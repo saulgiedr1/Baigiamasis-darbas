@@ -15,7 +15,6 @@ public class IngredientuVeiksmai {
         String sqlUzklausa = "SELECT * FROM ingredientai";
 
         try {
-
             PreparedStatement paruostukas = jungtis.prepareStatement(sqlUzklausa);
             ResultSet rezultatas = paruostukas.executeQuery();
             while (rezultatas.next()) {
@@ -85,4 +84,21 @@ public class IngredientuVeiksmai {
         }
         return ingredientas;
     }
+
+    public static void idetiIngredienta(Connection jungtis, Ingredientai ingredientas) {
+        String sqlUzklausa = "INSERT INTO ingredientai( pavadinimas, kaina) VALUES (  ?, ?)";
+
+        try {
+            PreparedStatement paruostukas = jungtis.prepareStatement(sqlUzklausa);
+
+            paruostukas.setString(1, ingredientas.getPavadinimas());
+            paruostukas.setDouble(2, ingredientas.getKaina());
+
+            paruostukas.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+
 }

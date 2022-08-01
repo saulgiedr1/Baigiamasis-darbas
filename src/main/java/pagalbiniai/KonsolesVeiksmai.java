@@ -1,7 +1,10 @@
 package pagalbiniai;
 
+import entities.Ingredientai;
 import entities.Receptai;
+import veiksmaiSuDuomenuBaze.IngredientuVeiksmai;
 
+import java.sql.Connection;
 import java.util.Scanner;
 
 public class KonsolesVeiksmai {
@@ -9,7 +12,6 @@ public class KonsolesVeiksmai {
     private static final Scanner skaitytuvas = new Scanner(System.in);
 
     public static Receptai ivestiReceptusPerKonsole() {
-
         System.out.println("Įveskite recepto pavadinimą");
         skaitytuvas.nextLine();
         String pavadinimas = skaitytuvas.nextLine();
@@ -18,11 +20,9 @@ public class KonsolesVeiksmai {
         skaitytuvas.nextLine();
         System.out.println("Įveskite nurodymus");
         String nurodymai = skaitytuvas.nextLine();
-
         System.out.println("Nurodymai = " + nurodymai);
         System.out.println("Kaina = " + kaina);
         System.out.println("Pavadinimas = " + pavadinimas);
-
         return new Receptai(pavadinimas, kaina, nurodymai);
     }
 
@@ -37,39 +37,51 @@ public class KonsolesVeiksmai {
         System.out.println("7 - Įvesti recepto duomenis;");
         System.out.println("8 - Receptai, brangesni už įvedamą kainą;");
         System.out.println("9 - Receptai, kurių pavadinimas prasideda raide arba raidėmis..;");
-
+        System.out.println("10 - Įtraukti naują ingredientą;");
         return skaitytuvas.nextInt();
     }
 
     public static double nuskaitytiIgredientusPigesniusUz() {
         System.out.println("Įveskite, už kiek pigesnius ingredientus rodyti");
-
         return skaitytuvas.nextDouble();
     }
 
     public static int nuskaitytiBrangiausiuIgredientuTop() {
         System.out.println("Įveskite, kelis brangiausius ingredientus rodyti");
-
         return skaitytuvas.nextInt();
     }
 
     public static int nuskaitytiNtojoReceptoIngredientus() {
         System.out.println("Įveskite, recepto id, kurio ingredientus rodyti");
-
         return skaitytuvas.nextInt();
     }
 
     public static double nuskaitytiReceptusBrangesniusUz() {
         System.out.println("Įveskite, už kokią kainą brangesnius receptus  rodyti");
-
         return skaitytuvas.nextDouble();
-
     }
 
     public static String nuskaitytiReceptaKurioPavadinimasPrasideda() {
         System.out.println("Įveskite recepto pavadinimo pirmą raidę arba pirmąsias kelias raides");
         skaitytuvas.nextLine();
-
         return skaitytuvas.nextLine();
+    }
+
+    public static int nuskaitytiIngredientoId(Connection jungtis) {
+        System.out.println("-----------------------------------------");
+        System.out.println("Išvedami visi ingredientai. Įrašykite ingrediento id, kurį norite pasirinkti, o jeigu reikiamo nėra įrašykite 0 arba  neigiamą skaičių: ");
+        System.out.println("-----------------------------------------");
+        PapildomosFunkcijos.isvestiIngredientuListaEilutemis(IngredientuVeiksmai.grazintiVisusIngredientus(jungtis));
+        return skaitytuvas.nextInt();
+    }
+
+    public static Ingredientai nuskaitytiIngredienta() {
+        skaitytuvas.nextLine();
+        System.out.println("Įveskite ingrediento pavadinimą: ");
+        String pavadinimas = skaitytuvas.nextLine();
+        System.out.println("Įveskite ingrediento kainą: ");
+        double kaina = skaitytuvas.nextDouble();
+        return new Ingredientai(pavadinimas, kaina);
+
     }
 }

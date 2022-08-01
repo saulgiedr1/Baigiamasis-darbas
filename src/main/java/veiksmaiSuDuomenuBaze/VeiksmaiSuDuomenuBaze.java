@@ -23,5 +23,4 @@ public class VeiksmaiSuDuomenuBaze {
         }
         return null;
     }
-
 }

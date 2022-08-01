@@ -14,6 +14,11 @@ public class Ingredientai {
         this.kaina = kaina;
     }
 
+    public Ingredientai(String pavadinimas, double kaina) {
+        this.pavadinimas = pavadinimas;
+        this.kaina = kaina;
+    }
+
     public int getId() {
         return id;
     }
