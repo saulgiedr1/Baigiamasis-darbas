@@ -37,7 +37,7 @@ public class KonsolesVeiksmai {
         System.out.println("7 - Įvesti recepto duomenis;");
         System.out.println("8 - Receptai, brangesni už įvedamą kainą;");
         System.out.println("9 - Receptai, kurių pavadinimas prasideda raide arba raidėmis..;");
-        System.out.println("10 - Įtraukti naują ingredientą;");
+        System.out.println("10 - Įtraukti naują ingredientą (Nebus sujungtas su receptu);");
         return skaitytuvas.nextInt();
     }
 
@@ -69,7 +69,7 @@ public class KonsolesVeiksmai {
 
     public static int nuskaitytiIngredientoId(Connection jungtis) {
         System.out.println("-----------------------------------------");
-        System.out.println("Išvedami visi ingredientai. Įrašykite ingrediento id, kurį norite pasirinkti, o jeigu reikiamo nėra įrašykite 0 arba  neigiamą skaičių: ");
+        System.out.println("Čia duomenų bazėje esantys ingredientai.Jeigu nors vieno reikiamo nėra, pirmiausia būtina jį įvesti, paspaudžiant 0 (nulis) prieš pasirenkant kitus.Jeigu yra visi, spauskite jų ID numerį");
         System.out.println("-----------------------------------------");
         PapildomosFunkcijos.isvestiIngredientuListaEilutemis(IngredientuVeiksmai.grazintiVisusIngredientus(jungtis));
         return skaitytuvas.nextInt();
@@ -82,6 +82,9 @@ public class KonsolesVeiksmai {
         System.out.println("Įveskite ingrediento kainą: ");
         double kaina = skaitytuvas.nextDouble();
         return new Ingredientai(pavadinimas, kaina);
-
+    }
+    public static int testiIngredientuIvedima() {
+        System.out.println("Jeigu tęsite ingredientų įvedimą, spauskite 1, jeigu baigėte, spauskite bet kokį skaičių");
+        return skaitytuvas.nextInt();
     }
 }
