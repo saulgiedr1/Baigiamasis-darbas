@@ -84,7 +84,7 @@ public class KonsolesVeiksmai {
         return new Ingredientai(pavadinimas, kaina);
     }
     public static int testiIngredientuIvedima() {
-        System.out.println("Jeigu tęsite ingredientų įvedimą, spauskite 1, jeigu baigėte, spauskite bet kokį skaičių");
+        System.out.println("Jeigu tęsite ingredientų įvedimą, spauskite 1, jeigu baigėte, spauskite bet kokį KITĄ skaičių");
         return skaitytuvas.nextInt();
     }
 }
