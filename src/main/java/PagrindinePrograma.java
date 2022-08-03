@@ -55,13 +55,12 @@ public class PagrindinePrograma {
             case 7:
                 assert jungtis != null;
                 Receptai naujasReceptas = KonsolesVeiksmai.ivestiReceptusPerKonsole();
+                ReceptuVeiksmai.pridetiRecepta(jungtis, naujasReceptas);
+                visiReceptai = ReceptuVeiksmai.grazintiVisusReceptus(jungtis);
+                int receptoId = visiReceptai.get(visiReceptai.size() - 1).getId();
                 int nonStop = 1;
                 while(nonStop == 1) {
                     int ingredientoId = KonsolesVeiksmai.nuskaitytiIngredientoId(jungtis);
-                    ReceptuVeiksmai.pridetiRecepta(jungtis, naujasReceptas);
-                    visiReceptai = ReceptuVeiksmai.grazintiVisusReceptus(jungtis);
-                    int receptoId = visiReceptai.get(visiReceptai.size() - 1).getId();
-
                     if (ingredientoId <= 0) {
                         Ingredientai ingredientai = KonsolesVeiksmai.nuskaitytiIngredienta();
                         IngredientuVeiksmai.idetiIngredienta(jungtis, ingredientai);

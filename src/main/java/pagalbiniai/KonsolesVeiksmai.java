@@ -69,7 +69,7 @@ public class KonsolesVeiksmai {
 
     public static int nuskaitytiIngredientoId(Connection jungtis) {
         System.out.println("-----------------------------------------");
-        System.out.println("Čia duomenų bazėje esantys ingredientai.Jeigu nors vieno reikiamo nėra, pirmiausia būtina jį įvesti, paspaudžiant 0 (nulis) prieš pasirenkant kitus.Jeigu yra visi, spauskite jų ID numerį");
+        System.out.println("Čia duomenų bazėje esantys ingredientai.Jeigu nors vieno reikiamo nėra,reikia jį įvesti, paspaudžiant 0 (nulis) .Jeigu yra sąraše, spauskite jų ID numerį;");
         System.out.println("-----------------------------------------");
         PapildomosFunkcijos.isvestiIngredientuListaEilutemis(IngredientuVeiksmai.grazintiVisusIngredientus(jungtis));
         return skaitytuvas.nextInt();
