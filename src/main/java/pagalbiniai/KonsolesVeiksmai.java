@@ -37,7 +37,7 @@ public class KonsolesVeiksmai {
         System.out.println("7 - Įvesti recepto duomenis;");
         System.out.println("8 - Receptai, brangesni už įvedamą kainą;");
         System.out.println("9 - Receptai, kurių pavadinimas prasideda raide arba raidėmis..;");
-        System.out.println("10 - Įtraukti naują ingredientą (Nebus sujungtas su jokiu receptu. Jeigu norite sujungimo, naudokite 7 meniu punktą);");
+        System.out.println("10 - Įtraukti naują ingredientą (Nebus sujungtas su jokiu receptu. Jeigu norite sujungimo, naudokite 7'tą meniu punktą);");
         return skaitytuvas.nextInt();
     }
 
